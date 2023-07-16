@@ -19,9 +19,12 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-// Initialize Firebase Analytics
+// Initialize Firebase Authentication and get a reference to the service
+const auth = getAuth(app);
+
+// Initialize Firebase Analytics and get a reference to the service
 const analytics = getAnalytics(app);
 
-// Create a Database Variable ()
+// Create a Database Variable (Firestore) and get a reference to the service
 export const database = firebase.firestore();
 export default firebase;
