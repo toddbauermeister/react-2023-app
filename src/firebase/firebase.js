@@ -27,4 +27,5 @@ const analytics = getAnalytics(app);
 
 // Create a Database Variable (Firestore) and get a reference to the service
 export const database = firebase.firestore();
+
 export default firebase;
