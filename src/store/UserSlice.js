@@ -10,8 +10,8 @@ const UserSlice = createSlice({
       state.user = action.payload
     },
     clearUserAndStore(state) {
-      // NB this also resets the entire redux store for logout purposes
-      state = initialState
+      // This is handled in the root reducer
+      // Clears the entire redux store
     },
   },
 })

@@ -29,26 +29,10 @@ export const analytics = firebase.analytics(firebaseApp);
 // Create a Database Variable (Firestore) and get a reference to the service
 export const database = firebaseApp.firestore();
 
-export const firebaseLogin = async (email, password) => {
-  try {
-      const result = await signInWithEmailAndPassword(auth, email, password);
-      const user = result.user
-
-      return user;
-  } catch (error) {
-      logEvent(analytics, 'error on firebaseLogin', error);
-  }
-} 
-
 onAuthStateChanged(auth, (user) => {
-  console.log('onAuthStateChanged')
   if (user) {
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/auth.user
-    // const uid = user.uid;
-    // ...
+    console.log('onAuthStateChanged - user is logged in')
   } else {
-    // User is signed out
-    // ...
+    console.log('onAuthStateChanged - user is logged out')
   }
 });

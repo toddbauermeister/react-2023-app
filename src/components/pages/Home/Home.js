@@ -1,10 +1,15 @@
 import { Button, Box } from "@mui/material";
+import useFirebaseAuth from '../../../firebase/useFirebaseAuth';
 
 const Home = () => {
-  const handleSubmit = (event) => {
+  const { isLoading, signoutUser } = useFirebaseAuth();
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log('Sign Out Clicked');
+
+    await signoutUser();
   }
 
   return <div>
