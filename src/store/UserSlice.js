@@ -16,5 +16,5 @@ const UserSlice = createSlice({
   },
 })
 
-export const { increment, decrement, incrementByAmount } = UserSlice.actions
+export const { setUser, clearUserAndStore } = UserSlice.actions
 export default UserSlice.reducer
