@@ -2,7 +2,7 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import 'firebase/compat/analytics'
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { logEvent } from "firebase/analytics";
 // import { getAnalytics } from "firebase/analytics";
 
@@ -41,6 +41,7 @@ export const firebaseLogin = async (email, password) => {
 } 
 
 onAuthStateChanged(auth, (user) => {
+  console.log('onAuthStateChanged')
   if (user) {
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/auth.user

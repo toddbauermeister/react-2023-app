@@ -1,3 +1,10 @@
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
+import 'firebase/compat/analytics'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { auth, analytics } from '../firebase/firebase' 
+import { logEvent } from "firebase/analytics";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setUser, clearUserAndStore } from '../store/UserSlice'
@@ -6,7 +13,7 @@ const useFirebaseAuth = () => {
     const dispatch = useDispatch();
     const [isLoading, setIsLoading] = useState(false);
     
-    const firebaseSignup = async (email, password) => {
+    const signupEmail = async (email, password) => {
         try {
             setIsLoading(true);
 
@@ -20,6 +27,8 @@ const useFirebaseAuth = () => {
             setIsLoading(false);
         }
       }  
+
+      return { isLoading, signupEmail };
 }
 
 export default useFirebaseAuth;
